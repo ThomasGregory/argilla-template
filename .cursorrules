@@ -1,0 +1,24 @@
+# Cursor rules for argilla
+
+# This is a Python project using uv and Docker for development
+# Use modern Python typing (PEP 604, ParamSpec, etc.)
+# All dependencies are managed via pyproject.toml
+# The virtual environment is located at .venv/
+
+# Use ruff for linting and mypy for type checking
+# All code must pass make verify
+
+# The rust_ext/ folder contains PyO3 bindings built via maturin
+# Do not rewrite or generate code in Rust unless explicitly asked
+
+# The argilla/ folder is the main Python package
+# It wraps and re-exports the Rust functionality
+
+# Do not edit Dockerfile or Makefile unless asked
+# Tests live in tests/ and use pytest
+# Use function-level tests only (no unittest classes)
+
+# Documentation is important! Please use types in Python arguments, 
+# add google-style docstrings and you are encouraged to propose updates
+# to existing files in docs, or to propose writing new files in docs
+# to keep the documentation up-to-date

@@ -107,9 +107,27 @@ verify: build
 			mypy argilla && \
 			pytest"
 
+devshell: build
+	docker run -it \
+		--name $(CONTAINER_NAME) \
+		-v $$PWD:$(WORKDIR) \
+		-w $(WORKDIR) \
+		$(IMAGE_NAME) bash
 
+attach:
+	docker exec -it $(CONTAINER_NAME) bash
 
+logs:
+	docker logs -f $(CONTAINER_NAME)
 
+restart:
+	docker stop $(CONTAINER_NAME) || true
+	docker rm $(CONTAINER_NAME) || true
+	docker run -it \
+		--name $(CONTAINER_NAME) \
+		-v $$PWD:$(WORKDIR) \
+		-w $(WORKDIR) \
+		$(IMAGE_NAME) bash
 
 
 

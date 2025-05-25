@@ -30,7 +30,7 @@ RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 ENV PATH="/home/devuser/.cargo/bin:$PATH"
 
 # Create a uv-managed virtualenv as devuser
-RUN uv venv .venv
+RUN uv venv --prompt argilla .venv
 ENV VIRTUAL_ENV="/home/devuser/app/.venv"
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
